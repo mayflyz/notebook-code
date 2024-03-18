@@ -50,7 +50,27 @@ key 的copy行为也是 NSDictionary 如何工作的基础，这就限制了只�
 
 ## 3、NSNotification实现
 
+通知是iOS对观察者模式的实现，通知通过NSNotificatinonCenter单例来管理及通知观察者。
 
+NSNotificatinonCenter介绍：
+
+> * `NSNotificatinonCenter`是使用观察者模式来实现的用于跨层传递消息，用来降低耦合度。
+> * `NSNotificatinonCenter`用来管理通知，将观察者注册到`NSNotificatinonCenter`的通知调度表中，然后发送通知时利用标识符`name`和`object`识别出调度表中的观察者，然后调用相应的观察者的方法，即传递消息。如果是基于`block`创建的通知就调用`NSNotification`的`block。`
+
+**NSNotification介绍：**
+
+> `NSNotification`是方便`NSNotificationCenter`广播到其他对象时的封装对象，简单讲即通知中心对通知调度表中的对象广播时发送`NSNotification`对象。
+
+通知中心广播发送通知是通过`name`和`object`来确定来标识观察者，NSNotificatinonCenter调度表根据`name`和`object`来设计。定义了两个Table，一张用于保存添加观察者的时候传入了NotifcationName的情况。一张用于保存添加观察者的时候没有传入了NotifcationName的情况。
+
+<figure><img src="../.gitbook/assets/image.png" alt="" width="563"><figcaption><p>NSNotification <strong>Named Table</strong></p></figcaption></figure>
+
+<figure><img src="../.gitbook/assets/image (3).png" alt="" width="563"><figcaption><p>NSNotification <strong>Namless Table</strong></p></figcaption></figure>
+
+**wildcard**\
+wildcard是链表的数据结构，如果在注册观察者时既没有传入NotificationName，也没有传入object，就会添加到wildcard的链表中。注册到这里的观察者能接收到 所有的系统通知。
+
+**NSNotificationQueue**是notification Center的缓冲池，遵循FIFO的顺序转发通知给`NSNotificationCenter。`每个线程都有一个默认的NSNotificationQueue。
 
 ## 4、NSMutableArray实现
 
@@ -72,14 +92,13 @@ key 的copy行为也是 NSDictionary 如何工作的基础，这就限制了只�
 
 #### 2、通知的发送时同步的，还是异步的？
 
-通知的发送是同步的，发送和接收通知在同一个线程。\
-
+通知的发送是同步的，发送和接收通知在同一个线程。
 
 #### 3、页面销毁时不移除通知会崩溃吗？多次添加同一通知会是什么结果？多次移除通知呢？
 
 iOS 9后，系统使用weak指针修饰observe，当observe被释放后，再次发送消息给nil不会引起崩溃，系统会下次发送通知时移除observe为nil的观察者。
 
-多次添加同一通知，回调会触发多次
+多次添加同一通知，回调会触发多次。(因为添加通知时没有做重复过滤，通过key值查到对应的链表后添加到末尾，因此会触发多次)
 
 多次移除，无影响。现在map中查找，然后做删除。
 

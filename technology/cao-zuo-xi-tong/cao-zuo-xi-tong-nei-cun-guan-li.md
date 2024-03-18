@@ -30,7 +30,7 @@ ROM和RAM都是内存
   * 静态RAM：读取速度快；在要求苛刻的地方使用(如CPU一级、二级、三级缓存)
   * 动态RAM：保留时间短，价格相对便宜
 
-<figure><img src="../.gitbook/assets/image (1).png" alt="" width="375"><figcaption><p>分级存储器</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt="" width="375"><figcaption><p>分级存储器</p></figcaption></figure>
 
 存储器的分级实际上就是⼀种缓存思想。⾦字塔底部的部分容量⼤，更便宜，主要是为了发 挥其存储属性；⽽⾦字塔尖的⾼速缓存部分读写速度快，负责将⾼频使⽤的部分缓存起来。
 
@@ -134,7 +134,7 @@ Compressed memory指当物理内存不够用时，iOS将部分物理内存压缩
 
 堆区用于动态内存的申请，由程序员分配和释放。
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>iOS app进程空间</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>iOS app进程空间</p></figcaption></figure>
 
 内存管理方式：
 

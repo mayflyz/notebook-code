@@ -50,7 +50,7 @@
 * **阻塞状态(waiting)**：进程正在等待某一事件而暂停运行如等待某资源为可用或等待 IO 操作完成。
 * **结束状态(terminated)：**进程正在从系统中消失。可能是进程正常结束或其他原因中断退出运行**。**
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>进程状态转换图</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>进程状态转换图</p></figcaption></figure>
 
 > 只有就绪态和运行态可以相互转换，其他都是单向转换。
 >

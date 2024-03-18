@@ -56,7 +56,7 @@
 * 做到配置更新，主动推送到客户端
 * 支持配置回滚，删除恢复
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>配置中心基础设置</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption><p>配置中心基础设置</p></figcaption></figure>
 
 
 

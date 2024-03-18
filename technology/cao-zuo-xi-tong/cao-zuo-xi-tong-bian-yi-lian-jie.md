@@ -1,6 +1,6 @@
 # 操作系统—编译链接
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption><p>程序编译、链接、装载与运行</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>程序编译、链接、装载与运行</p></figcaption></figure>
 
 ## 一、编译
 
